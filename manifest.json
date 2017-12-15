@@ -1,0 +1,38 @@
+{
+    "manifest_version": 2,
+    "name": "my clock",
+    "version": "1.0",
+    "description": "my first chrome extension",
+    "background": {
+           "scripts": [
+               "js/status.js"
+           ]
+       },
+    "options_page": "options.html",
+    "permissions": [
+        "http://api.openweathermap.org/data/2.5/forecast?q=*",
+        "http://www.google.com/",
+        "*://*.wikipedia.org/*",
+        "http://apis.juhe.cn/ip/ip2addr",
+        "http://www.net.cn/static/customercare/yourip.asp"
+    ],
+    "content_scripts": [
+            {
+                "matches": ["*://www.baidu.com/"],
+                "js": ["js/cannot_touch.js"]
+            }
+        ],
+    "icons": {
+        "16": "images/icon16.png",
+        "48": "images/icon48.png",
+        "128": "images/icon128.png"
+    },
+    "browser_action": {
+        "default_icon": {
+            "19": "images/icon19.png",
+            "38": "images/icon38.png"
+        },
+        "default_title": "my clock",
+        "default_popup": "popup.html"
+    }
+}
